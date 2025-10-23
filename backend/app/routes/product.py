@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
 import mysql.connector
 from typing import List, Optional
-from app.database import get_db
-from app.schemas.product import ProductOut
-from app.schemas.variant import ProductWithVariantsOut
+from ..database import get_db
+from ..schemas.product import ProductOut
+from ..schemas.variant import ProductWithVariantsOut
 
 router = APIRouter(prefix="/products", tags=["Products"])
 

@@ -2,7 +2,7 @@
 Location Routes
 """
 from fastapi import APIRouter, Depends, HTTPException
-from app.database import get_db
+from ..database import get_db
 from typing import List
 from pydantic import BaseModel
 

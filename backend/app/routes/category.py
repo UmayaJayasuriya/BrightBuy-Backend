@@ -1,8 +1,8 @@
 # app/routes/category.py
 from fastapi import APIRouter, Depends, HTTPException
 import mysql.connector
-from app.database import get_db
-from app.schemas.category import CategoryOut
+from ..database import get_db
+from ..schemas.category import CategoryOut
 from typing import List
 
 router = APIRouter(prefix="/categories", tags=["Categories"])

@@ -2,8 +2,8 @@
 Cart Routes - Converted to MySQL Connector
 """
 from fastapi import APIRouter, Depends, HTTPException, status, Query, Body
-from app.database import get_db
-from app.schemas.cart import CartOut, AddToCartRequest, CartItemOut
+from ..database import get_db
+from ..schemas.cart import CartOut, AddToCartRequest, CartItemOut
 from typing import List, Optional
 from pydantic import BaseModel
 

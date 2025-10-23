@@ -4,8 +4,8 @@ Generates formatted PDF reports using database views
 """
 from fastapi import APIRouter, Depends, HTTPException, Query
 from fastapi.responses import StreamingResponse
-from app.database import get_db
-from app.security import get_admin_user
+from ..database import get_db
+from ..security import get_admin_user
 from datetime import datetime, date
 from io import BytesIO
 from typing import Optional

@@ -2,11 +2,11 @@
 Order Routes - MySQL Connector Version
 """
 from fastapi import APIRouter, HTTPException, status
-from app.database import get_connection
-from app.schemas.order import OrderOut, CreateOrderRequest, OrderItemOut
+from ..database import get_connection
+from ..schemas.order import OrderOut, CreateOrderRequest, OrderItemOut
 from typing import List
 from datetime import datetime, timedelta
-from app.services.email_service import send_order_confirmation
+from ..services.email_service import send_order_confirmation
 
 router = APIRouter(prefix="/orders", tags=["orders"])
 

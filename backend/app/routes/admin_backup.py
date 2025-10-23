@@ -2,8 +2,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from typing import List, Optional
 import mysql.connector
 
-from app.database import get_db
-from app.security import get_admin_user
+from ..database import get_db
+from ..security import get_admin_user
 
 
 router = APIRouter(prefix="/admin", tags=["Admin"])

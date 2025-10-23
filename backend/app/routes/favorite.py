@@ -3,8 +3,8 @@ Favorite Product Routes - MySQL Connector
 Handles user favorite/wishlist products
 """
 from fastapi import APIRouter, Depends, HTTPException, status
-from app.database import get_db
-from app.schemas.favorite import FavoriteCreate, FavoriteOut, FavoriteResponse
+from ..database import get_db
+from ..schemas.favorite import FavoriteCreate, FavoriteOut, FavoriteResponse
 from typing import List
 from datetime import datetime
 

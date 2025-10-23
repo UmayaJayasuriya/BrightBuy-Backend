@@ -2,8 +2,8 @@
 Contact Routes
 """
 from fastapi import APIRouter, Depends, HTTPException
-from app.database import get_db
-from app.schemas.contact import ContactCreate, ContactOut
+from ..database import get_db
+from ..schemas.contact import ContactCreate, ContactOut
 
 router = APIRouter(prefix="/contact", tags=["contact"])
 

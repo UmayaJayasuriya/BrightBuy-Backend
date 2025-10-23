@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException, Body
 from typing import List, Optional
 import mysql.connector
-from app.database import get_db
-from app.security import get_admin_user
-from app.schemas.product import ProductCreate
-from app.schemas.variant import VariantCreate
+from ..database import get_db
+from ..security import get_admin_user
+from ..schemas.product import ProductCreate
+from ..schemas.variant import VariantCreate
 
 router = APIRouter(prefix="/admin", tags=["Admin"])
 

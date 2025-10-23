@@ -6,7 +6,7 @@ from pathlib import Path
 import mysql.connector
 try:
     # Preferred: run as package (python -m app.services.db_export)
-    from app.database import DB_CONFIG
+    from ..database import DB_CONFIG
 except Exception:
     # Fall back when running the script directly (python db_export.py)
     # Add project root to sys.path so absolute import works

@@ -2,10 +2,10 @@ from fastapi import APIRouter, Depends, HTTPException
 import bcrypt
 import secrets
 from datetime import datetime, timedelta
-from app.database import get_db
-from app.schemas.auth import LoginRequest, VerifyCodeRequest, LoginResponse
-from app.security import create_access_token
-from app.services.email_service import send_verification_code
+from ..database import get_db
+from ..schemas.auth import LoginRequest, VerifyCodeRequest, LoginResponse
+from ..security import create_access_token
+from ..services.email_service import send_verification_code
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 

@@ -6,7 +6,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from typing import Optional, List
 from datetime import date, timedelta
 from pydantic import BaseModel
-from app.database import get_db
+from ..database import get_db
 import mysql.connector
 
 router = APIRouter(prefix="/analytics", tags=["Analytics"])

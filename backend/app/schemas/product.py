@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import Optional, List
-from app.schemas.variant import VariantCreate
+from .variant import VariantCreate
 
 # Category info for product response
 class CategoryInfo(BaseModel):

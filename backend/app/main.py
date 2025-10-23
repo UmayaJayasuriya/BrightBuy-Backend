@@ -1,21 +1,21 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import mysql.connector
-from app.database import get_db
-from app.services import db_export
+from .database import get_db
+from .services import db_export
 
-from app.routes import category
-from app.routes import user 
-from app.routes import auth
-from app.routes import product
-from app.routes import contact
-from app.routes import cart
-from app.routes import order
-from app.routes import location
-from app.routes import analytics
-from app.routes import admin
-from app.routes import favorite
-from app.routes import reports
+from .routes import category
+from .routes import user 
+from .routes import auth
+from .routes import product
+from .routes import contact
+from .routes import cart
+from .routes import order
+from .routes import location
+from .routes import analytics
+from .routes import admin
+from .routes import favorite
+from .routes import reports
 
 app = FastAPI()
 

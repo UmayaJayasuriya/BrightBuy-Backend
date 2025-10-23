@@ -1,27 +1,27 @@
 from fastapi import APIRouter, Depends, HTTPException
 from typing import List
-from app.database import get_db
-from app.schemas.user import UserCreate, UserOut
+from ..database import get_db
+from ..schemas.user import UserCreate, UserOut
 import bcrypt
 
 router = APIRouter(prefix="/users", tags=["Users"])
 
-# Create user + address
+
 @router.post("/", response_model=UserOut)
 def create_user(user: UserCreate, db=Depends(get_db)):
     cursor = None
     try:
         cursor = db.cursor(dictionary=True)
         print(f" Received signup request for: {user.email}")
-        
+
         # Backend validation: Check email format
         if '@' not in user.email:
             print(f" Invalid email format: {user.email}")
             raise HTTPException(
-                status_code=400, 
+                status_code=400,
                 detail='Please enter a valid email address. It must include the "@" symbol (e.g., name@example.com).'
             )
-        
+
         # Step 1: Resolve city_id from city name
         cursor.execute("SELECT city_id, city FROM location WHERE city = %s", (user.address.city,))
         city = cursor.fetchone()
@@ -52,7 +52,7 @@ def create_user(user: UserCreate, db=Depends(get_db)):
             user.address.city,
             user.address.state
         ]
-        
+
         cursor.callproc('AddUserWithAddress', args)
         db.commit()
         print(f" Stored procedure executed successfully")
@@ -78,14 +78,14 @@ def create_user(user: UserCreate, db=Depends(get_db)):
         if cursor:
             cursor.close()
         print(f" Error creating user: {str(e)}")
-        
+
         error_msg = str(e)
         if "Please enter a valid email address" in error_msg or "45000" in error_msg:
             raise HTTPException(
-                status_code=400, 
+                status_code=400,
                 detail='Please enter a valid email address. It must include the "@" symbol (e.g., name@example.com).'
             )
-        
+
         raise HTTPException(status_code=500, detail=str(e))
 
 
